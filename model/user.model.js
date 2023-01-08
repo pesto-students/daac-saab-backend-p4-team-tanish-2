@@ -1,6 +1,22 @@
 import mongoose from "mongoose";
 
-const userModel = new mongoose.Schema({});
+const userModel = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  Experience: {
+    type: String,
+  },
+  specialist: {
+    type: String,
+  },
+  degree: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
+});
 
 const Users = mongoose.model("User", userModel);
 export default Users;
