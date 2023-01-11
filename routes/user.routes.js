@@ -9,6 +9,8 @@ import {
 import {
   getDoctorByTitle,
   createDoctor,
+  getSpecialistById,
+
 } from "../controllers/Doctor.controller.js";
 
 const router = express.Router();
@@ -20,5 +22,6 @@ router.get("/getDoctorDetail", getDoctorDetail);
 router.get("/doctor/:id", getDoctorDetailById);
 router.get("/doctorSpecialist/:specialist", getDoctorByTitle);
 router.post("/createDoc", createDoctor);
+router.get("/docById/:id",getSpecialistById);
 
 export default router;

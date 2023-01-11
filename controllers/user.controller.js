@@ -13,7 +13,7 @@ export const createEmployee = async (req, res) => {
 };
 export const getDoctor = async (req, res) => {
   try {
-    const doctor = await Users.find();
+    const doctor = await Users.find().limit(35);
     res.status(200);
     res.json(doctor);
   } catch (error) {
@@ -45,7 +45,10 @@ export const userPayment = async (req, res) => {
 };
 export const getDoctorDetail = async (req, res) => {
   try {
-    const doctorDetail = await Users.find({}, { degree: 1, specialist: 1 });
+    const doctorDetail = await Users.find(
+      {},
+      { degree: 1, specialist: 1 }
+    ).limit(35);
     res.status(200);
     res.json(doctorDetail);
   } catch (error) {
