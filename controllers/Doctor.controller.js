@@ -21,3 +21,14 @@ export const createDoctor = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+export const getSpecialistById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const docById = await Doctors.findById(id);
+    res.status(200);
+    res.json(docById);
+  } catch (error) {
+    res.status(404), res.json({ message: err.message });
+  }
+};
