@@ -1,3 +1,4 @@
+import Doctors from "../model/doctor.model.js";
 import Users from "../model/user.model.js";
 
 export const createEmployee = async (req, res) => {
@@ -13,7 +14,9 @@ export const createEmployee = async (req, res) => {
 };
 export const getDoctor = async (req, res) => {
   try {
-    const doctor = await Users.find().limit(35);
+    const doctor = await Users
+    .find()
+    .limit(35);
     res.status(200);
     res.json(doctor);
   } catch (error) {
@@ -58,7 +61,7 @@ export const getDoctorDetail = async (req, res) => {
 export const getDoctorDetailById = async (req, res) => {
   const { id } = req.params;
   try {
-    const doctor = await Users.findById(id);
+    const doctor = await Doctors.findById(id);
     res.status(200);
     res.json(doctor);
   } catch {
