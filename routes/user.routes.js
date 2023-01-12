@@ -19,7 +19,7 @@ router.post("/createEmployee", createEmployee);
 router.post("/payment", userPayment);
 router.get("/getDoctor", getDoctor);
 router.get("/getDoctorDetail", getDoctorDetail);
-router.get("/doctor/:id", getDoctorDetailById);
+router.get("/doctorByDetail/:id", getDoctorDetailById);
 router.get("/doctorSpecialist/:specialist", getDoctorByTitle);
 router.post("/createDoc", createDoctor);
 router.get("/docById/:id",getSpecialistById);
