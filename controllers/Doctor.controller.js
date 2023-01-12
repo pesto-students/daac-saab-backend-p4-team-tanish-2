@@ -3,7 +3,9 @@ import Doctors from "../model/doctor.model.js";
 export const getDoctorByTitle = async (req, res) => {
   const { specialist } = req.params;
   try {
-    const doctorSpecialist = await Doctors.find({ specialist: specialist });
+    const doctorSpecialist = await Doctors
+    .find({ specialist: specialist })
+    .limit(5)
     res.status(200);
     res.send(doctorSpecialist);
   } catch (error) {
