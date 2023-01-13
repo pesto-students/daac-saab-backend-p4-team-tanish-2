@@ -1,5 +1,6 @@
 import Doctors from "../model/doctor.model.js";
 import Users from "../model/user.model.js";
+import New_doc from "../model/NewDoctor.model.js";
 
 export const createEmployee = async (req, res) => {
   const newDoctor = new Users(req.body);
@@ -12,10 +13,17 @@ export const createEmployee = async (req, res) => {
     res.json({ message: err.message });
   }
 };
-
-// new Users creates a new Set .
-//201 = Success 
-//400-500 => Error 
+export const new_doc = async (req, res) => {
+  const req_doc = new New_doc(req.body);
+  try {
+    req_doc.save();
+    res.status(200);
+    res.json(new_doc);
+  } catch (err) {
+    res.status(404);
+    res.json({ message: err.message });
+  }
+};
 export const getDoctor = async (req, res) => {
   try {
     const doctor = await Users.find().limit(35);
@@ -26,9 +34,6 @@ export const getDoctor = async (req, res) => {
     res.json({ message: error.message });
   }
 };
-
-
-// only to get degree and specialist data
 export const getDoctorDetail = async (req, res) => {
   try {
     const doctorDetail = await Users.find(
