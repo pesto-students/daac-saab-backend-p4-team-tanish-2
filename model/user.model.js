@@ -20,3 +20,6 @@ const userModel = new mongoose.Schema({
 
 const Users = mongoose.model("User", userModel);
 export default Users;
+ 
+// Main DB=> Clusters 
+// User naam ka ek cluster hai yeh 
