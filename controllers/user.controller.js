@@ -1,5 +1,6 @@
 import Doctors from "../model/doctor.model.js";
 import Users from "../model/user.model.js";
+import New_doc from "../model/NewDoctor.model.js";
 
 export const createEmployee = async (req, res) => {
   const newDoctor = new Users(req.body);
@@ -12,38 +13,25 @@ export const createEmployee = async (req, res) => {
     res.json({ message: err.message });
   }
 };
+export const new_doc = async (req, res) => {
+  const req_doc = new New_doc(req.body);
+  try {
+    req_doc.save();
+    res.status(200);
+    res.json(new_doc);
+  } catch (err) {
+    res.status(404);
+    res.json({ message: err.message });
+  }
+};
 export const getDoctor = async (req, res) => {
   try {
-    const doctor = await Users
-    .find()
-    .limit(35);
+    const doctor = await Users.find().limit(35);
     res.status(200);
     res.json(doctor);
   } catch (error) {
     res.status(404);
     res.json({ message: error.message });
-  }
-};
-export const userPayment = async (req, res) => {
-  try {
-    const instance = new Razorpay({
-      key_id: process.env.RAZORPAY_KEY_ID,
-      key_secret: process.env.RAZORPAY_SECRET,
-    });
-
-    const options = {
-      amount: 50000, // amount in smallest currency unit
-      currency: "INR",
-      receipt: "receipt_order_74394",
-    };
-
-    const order = await instance.orders.create(options);
-
-    if (!order) return res.status(500).send("Some error occured");
-
-    res.json(order);
-  } catch (error) {
-    res.status(500).send(error);
   }
 };
 export const getDoctorDetail = async (req, res) => {

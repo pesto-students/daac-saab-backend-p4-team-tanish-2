@@ -4,7 +4,7 @@ const userModel = new mongoose.Schema({
   name: {
     type: String,
   },
-  Experience: {
+  experience: {
     type: String,
   },
   specialist: {
@@ -18,5 +18,5 @@ const userModel = new mongoose.Schema({
   },
 });
 
-const Users = mongoose.model("User", userModel);
+const Users = mongoose.model("users", userModel);
 export default Users;
