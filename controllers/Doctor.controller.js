@@ -5,7 +5,6 @@ export const getDoctorByTitle = async (req, res) => {
   try {
     const doctorSpecialist = await Doctors
     .find({ specialist: specialist })
-    .limit(5)
     res.status(200);
     res.send(doctorSpecialist);
   } catch (error) {
