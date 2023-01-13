@@ -46,6 +46,8 @@ export const getDoctorDetail = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+//Mongo DB Function => findById 
 export const getDoctorDetailById = async (req, res) => {
   const { id } = req.params;
   try {
