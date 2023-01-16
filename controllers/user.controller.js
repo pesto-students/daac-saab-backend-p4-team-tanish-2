@@ -26,9 +26,7 @@ export const new_doc = async (req, res) => {
 };
 export const getDoctor = async (req, res) => {
   try {
-    const doctor = await Users
-    .find()
-    .limit(35);
+    const doctor = await Users.find().limit(35);
     res.status(200);
     res.json(doctor);
   } catch (error) {
@@ -38,11 +36,7 @@ export const getDoctor = async (req, res) => {
 };
 export const getDoctorDetail = async (req, res) => {
   try {
-    const doctorDetail = await Users.find(
-      {},
-      { degree: 1, specialist: 1 }
-    )
-    .limit(35);
+    const doctorDetail = await Users.find().limit(35);
     res.status(200);
     res.json(doctorDetail);
   } catch (error) {
@@ -50,7 +44,7 @@ export const getDoctorDetail = async (req, res) => {
   }
 };
 
-//Mongo DB Function => findById 
+//Mongo DB Function => findById
 export const getDoctorDetailById = async (req, res) => {
   const { id } = req.params;
   try {
