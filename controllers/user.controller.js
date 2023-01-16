@@ -1,6 +1,29 @@
 import Doctors from "../model/doctor.model.js";
 import Users from "../model/user.model.js";
 import New_doc from "../model/NewDoctor.model.js";
+import Prescription from "../model/prescription.model.js";
+
+export const getSymptoms = async (req, res) => {
+  const { symptom } = req.params;
+  try {
+    const data = await Prescription.find({
+      symptom: symptom,
+    });
+    res.json(data);
+    res.status(201);
+  } catch (err) {
+    res.sendStatus(404);
+  }
+};
+export const createSymptom = async (res, req) => {
+  const prescription = new Prescription(req.body);
+  try {
+    prescription.save();
+    res.json(201);
+  } catch (err) {
+    res.status(500);
+  }
+};
 
 export const createEmployee = async (req, res) => {
   const newDoctor = new Users(req.body);
