@@ -17,11 +17,14 @@ export const getSymptoms = async (req, res) => {
 };
 export const createSymptom = async (res, req) => {
   const prescription = new Prescription(req.body);
+  console.log(prescription, "prescription");
   try {
-    prescription.save();
-    res.json(201);
+    await prescription.save();
+    res.status(201);
+    res.json(prescription);
   } catch (err) {
-    res.status(500);
+    res.status(400);
+    res.json({ message: err.message });
   }
 };
 
