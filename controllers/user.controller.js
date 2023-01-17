@@ -15,9 +15,8 @@ export const getSymptoms = async (req, res) => {
     res.sendStatus(404);
   }
 };
-export const createSymptom = async (res, req) => {
+export const createSymptomCure = async (req, res) => {
   const prescription = new Prescription(req.body);
-  console.log(prescription, "prescription");
   try {
     await prescription.save();
     res.status(201);
