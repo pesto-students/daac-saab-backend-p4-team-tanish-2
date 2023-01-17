@@ -6,7 +6,7 @@ import {
   getDoctorDetailById,
   getSymptoms,
   new_doc,
-  createSymptom,
+  createSymptomCure,
 } from "../controllers/user.controller.js";
 import {
   getDoctorByTitle,
@@ -25,6 +25,6 @@ router.post("/createDoc", createDoctor);
 router.get("/docById/:id", getSpecialistById);
 router.post("/request", new_doc);
 router.get("/getPrescription/:symptom", getSymptoms);
-router.post("/createSymptom", createSymptom);
+router.post("/createSymptom", createSymptomCure);
 
 export default router;
