@@ -8,7 +8,7 @@ export const getSymptoms = async (req, res) => {
   try {
     const data = await Prescription.find({
       symptom: symptom,
-    });
+    }).lean();
     res.json(data);
     res.status(201);
   } catch (err) {
